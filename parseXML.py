@@ -34,7 +34,7 @@ def process_front(front):
     article_meta['subject'] = am.subject.string
     article_meta['article_title'] = getstring(am.find('article-title'))
     article_meta['authors'] = [
-        {'surname': aut.surname.string, 'given_name': aut.find('given-names').string,
+        {'surname': getstring(aut.surname.string), 'given_name': getstring(aut.find('given-names')),
          # 'initials': ' '.join(list(map(lambda x: '%s.' % x[0], aut.find('given-names').string.split(' ')))),
          'corresp': True if aut.get('corresp') is not None else False,
          'aff': [aff['rid'] for aff in aut.find_all('xref', {'ref-type': 'aff'})]} for aut
