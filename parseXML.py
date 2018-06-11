@@ -126,7 +126,7 @@ def process_back(back):
         ref_data['publisher'] = {publish_tag.name.split('publisher-')[1]: publish_tag.get_text() for publish_tag in
                                  ref.find_all(re.compile('publisher-.*'))}
 
-        ref_data['article_ids'] = [aid.string for aid in
+        ref_data['referred_article_ids'] = [aid.string for aid in
                                    ref.find_all('pub-id')]
 
     to_return['ref_list'] = ref_list
